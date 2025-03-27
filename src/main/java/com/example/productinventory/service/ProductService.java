@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -60,9 +61,25 @@ public class ProductService {
         return product;
     }
 
-    public String hola(){
-        return "Hola";
+
+    //Products Filter
+    public Page<Product> filterProductsByName (String name, Pageable pageable){
+        return productRepository.findByName(name, pageable);
     }
 
+    public Page<Product> filterProductsByPrice (BigDecimal minPrice, BigDecimal maxPrice, Pageable pageable){
+        return productRepository.findByPrice(minPrice, maxPrice, pageable);
+    }
 
+    public Page<Product> filterSortProducts(String name, BigDecimal minPrice, BigDecimal maxPrice, Pageable pageable) {
+        if (name != null && minPrice != null && maxPrice != null) {
+            return productRepository.findByNamePrice(name, minPrice, maxPrice, pageable);
+        } else if (name != null) {
+            return filterProductsByName(name, pageable);
+        } else if (minPrice != null && maxPrice != null) {
+            return filterProductsByPrice(minPrice, maxPrice, pageable);
+        } else {
+            return productRepository.findAll(pageable);
+        }
+    }
 }
