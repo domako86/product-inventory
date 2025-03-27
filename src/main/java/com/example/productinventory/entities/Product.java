@@ -1,6 +1,8 @@
 package com.example.productinventory.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -27,6 +29,11 @@ public class Product {
     @Schema(description = "Version of the product for the optimistic locking", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
     @Version
     private Integer version;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    @JsonBackReference
+    private Category category;
 
     public Product() {
     }
@@ -85,5 +92,13 @@ public class Product {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
