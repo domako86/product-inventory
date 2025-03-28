@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "4b782b25-a166-4da9-befe-03de97d23164",
+		"name": "Phoenix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15134363"
+	},
+	"item": [
+		{
+			"name": "/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products/filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/filter?minPrice=9.99&maxPrice=19.99&page=0&size=5&sort=name,asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"filter"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Pikachu Plushie",
+							"disabled": true
+						},
+						{
+							"key": "minPrice",
+							"value": "9.99"
+						},
+						{
+							"key": "maxPrice",
+							"value": "19.99"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						},
+						{
+							"key": "sort",
+							"value": "name,asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Pikachu Plushie\",\r\n    \"description\": \"Electric pokémon\",\r\n    \"price\": \"9.99\",\r\n    \"quantity\": \"10\",\r\n    \"category\": {\r\n        \"id\": 1\r\n    }\r\n}\r\n    \r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/products/bulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\": \"Pikachu Plushie\",\r\n        \"description\": \"Electric pokémon\",\r\n        \"price\": \"9.99\",\r\n        \"quantity\": \"10\"\r\n    },\r\n    {\r\n        \"name\": \"Charmander Plushie\",\r\n        \"description\": \"Fire pokémon\",\r\n        \"price\": \"10.99\",\r\n        \"quantity\": \"15\"\r\n    },\r\n    {\r\n        \"name\": \"Squirtle Plushie\",\r\n        \"description\": \"Water pokémon\",\r\n        \"price\": \"11.99\",\r\n        \"quantity\": \"20\"\r\n    },\r\n    {\r\n        \"name\": \"Bulbasaur Plushie\",\r\n        \"description\": \"Grass pokémon\",\r\n        \"price\": \"12.99\",\r\n        \"quantity\": \"25\"\r\n    },\r\n    {\r\n        \"name\": \"Jigglypuff Plushie\",\r\n        \"description\": \"Fairy pokémon\",\r\n        \"price\": \"13.99\",\r\n        \"quantity\": \"30\"\r\n    },\r\n    {\r\n        \"name\": \"Meowth Plushie\",\r\n        \"description\": \"Normal pokémon\",\r\n        \"price\": \"14.99\",\r\n        \"quantity\": \"35\"\r\n    },\r\n    {\r\n        \"name\": \"Psyduck Plushie\",\r\n        \"description\": \"Water pokémon\",\r\n        \"price\": \"15.99\",\r\n        \"quantity\": \"40\"\r\n    },\r\n    {\r\n        \"name\": \"Snorlax Plushie\",\r\n        \"description\": \"Normal pokémon\",\r\n        \"price\": \"16.99\",\r\n        \"quantity\": \"45\"\r\n    },\r\n    {\r\n        \"name\": \"Eevee Plushie\",\r\n        \"description\": \"Normal pokémon\",\r\n        \"price\": \"17.99\",\r\n        \"quantity\": \"50\"\r\n    },\r\n    {\r\n        \"name\": \"Vulpix Plushie\",\r\n        \"description\": \"Fire pokémon\",\r\n        \"price\": \"18.99\",\r\n        \"quantity\": \"55\"\r\n    },\r\n    {\r\n        \"name\": \"Gengar Plushie\",\r\n        \"description\": \"Ghost pokémon\",\r\n        \"price\": \"19.99\",\r\n        \"quantity\": \"60\"\r\n    },\r\n    {\r\n        \"name\": \"Lapras Plushie\",\r\n        \"description\": \"Water pokémon\",\r\n        \"price\": \"20.99\",\r\n        \"quantity\": \"65\"\r\n    },\r\n    {\r\n        \"name\": \"Ditto Plushie\",\r\n        \"description\": \"Normal pokémon\",\r\n        \"price\": \"21.99\",\r\n        \"quantity\": \"70\"\r\n    },\r\n    {\r\n        \"name\": \"Togepi Plushie\",\r\n        \"description\": \"Fairy pokémon\",\r\n        \"price\": \"22.99\",\r\n        \"quantity\": \"75\"\r\n    },\r\n    {\r\n        \"name\": \"Mew Plushie\",\r\n        \"description\": \"Psychic pokémon\",\r\n        \"price\": \"23.99\",\r\n        \"quantity\": \"80\"\r\n    },\r\n    {\r\n        \"name\": \"Mewtwo Plushie\",\r\n        \"description\": \"Psychic pokémon\",\r\n        \"price\": \"24.99\",\r\n        \"quantity\": \"85\"\r\n    },\r\n    {\r\n        \"name\": \"Lucario Plushie\",\r\n        \"description\": \"Fighting pokémon\",\r\n        \"price\": \"25.99\",\r\n        \"quantity\": \"90\"\r\n    },\r\n    {\r\n        \"name\": \"Greninja Plushie\",\r\n        \"description\": \"Water pokémon\",\r\n        \"price\": \"26.99\",\r\n        \"quantity\": \"95\"\r\n    },\r\n    {\r\n        \"name\": \"Charizard Plushie\",\r\n        \"description\": \"Fire pokémon\",\r\n        \"price\": \"27.99\",\r\n        \"quantity\": \"100\"\r\n    },\r\n    {\r\n        \"name\": \"Blastoise Plushie\",\r\n        \"description\": \"Water pokémon\",\r\n        \"price\": \"28.99\",\r\n        \"quantity\": \"105\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/bulk",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Updated Pikachu Plushie\",\r\n    \"description\": \"Electric pokémon - Updated\",\r\n    \"price\": \"19.99\",\r\n    \"quantity\": \"20\",\r\n    \"version\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "products/{id}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Updated Pikachu Plushie\",\r\n    \"description\": \"Electric pokémon - Updated\",\r\n    \"price\": \"19.99\",\r\n    \"quantity\": \"20\",\r\n    \"version\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/categories/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/categories/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/categories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Plushies\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/auth/login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "/test/user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/test/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/test/admin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/test/admin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -10,6 +10,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 @Schema(description = "Product entity")
 @Entity
+@Table(name = "product")
 public class Product {
     @Schema(description = "Unique identifier of the product", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
     @Id
